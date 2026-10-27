@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- App Information -->
+	<key>CFBundleDisplayName</key>
+	<string>AL</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.axel.al</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	
+	<!-- Localization -->
+	<key>CFBundleDevelopmentRegion</key>
+	<string>en</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>pl</string>
+	</array>
+	
+	<!-- UI Configuration -->
+	<key>UIApplicationSceneManifest</key>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<false/>
+		<key>UISceneConfigurations</key>
+		<dict>
+			<key>UIWindowSceneSessionRoleApplication</key>
+			<array>
+				<dict>
+					<key>UISceneConfigurationName</key>
+					<string>Default Configuration</string>
+					<key>UISceneDelegateClassName</key>
+					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
+				</dict>
+			</array>
+		</dict>
+	</dict>
+	
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile</key>
+	<string>Main</string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	
+	<!-- Status Bar -->
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDarkContent</string>
+	<key>UIStatusBarHidden</key>
+	<false/>
+	
+	<!-- Safe Areas -->
+	<key>UIRequiresFullScreen</key>
+	<false/>
+	
+	<!-- Microphone Permission -->
+	<key>NSMicrophoneUsageDescription</key>
+	<string>AL potrzebuje dostępu do mikrofonu, aby nagrywać Twoje polecenia głosowe i transkrybować mowę na tekst.</string>
+	
+	<!-- Camera Permission -->
+	<key>NSCameraUsageDescription</key>
+	<string>AL potrzebuje dostępu do kamery, aby skanować dokumenty i zdjęcia do importu.</string>
+	
+	<!-- Photo Library Permissions -->
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>AL potrzebuje dostępu do galerii, aby importować zdjęcia i dokumenty z Twojego urządzenia.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>AL potrzebuje dostępu, aby zapisywać zdjęcia i dokumenty w Twojej galerii.</string>
+	
+	<!-- Notifications -->
+	<key>UIUserNotificationAlertStyle</key>
+	<string>1</string>
+	
+	<!-- Background Modes -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>processing</string>
+	</array>
+	
+	<!-- App Transport Security -->
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>localhost</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+			<key>127.0.0.1</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	
+	<!-- Capacitor Configuration -->
+	<key>WKAppBoundDomains</key>
+	<array/>
+	<key>WKCompressesStaticWebViewLoads</key>
+	<true/>
+	<key>WKAllowsLinkPreview</key>
+	<true/>
+	
+	<!-- iOS 15+ Configuration -->
+	<key>UISceneSupportedInterfaceOrientations</key>
+	<dict>
+		<key>UIWindowSceneSessionRoleApplication</key>
+		<array>
+			<string>UIInterfaceOrientationPortrait</string>
+			<string>UIInterfaceOrientationLandscapeLeft</string>
+			<string>UIInterfaceOrientationLandscapeRight</string>
+		</array>
+	</dict>
+	
+	<!-- Privacy -->
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>AL potrzebuje dostępu do lokalizacji, aby dostarczać spersonalizowane usługi oparte na Twojej lokalizacji.</string>
+	
+	<!-- Face ID / Touch ID -->
+	<key>NSFaceIDUsageDescription</key>
+	<string>AL potrzebuje dostępu do Face ID lub Touch ID, aby szybko uwierzytelniać Twoją tożsamość.</string>
+	
+	<!-- Siri -->
+	<key>NSSiriUsageDescription</key>
+	<string>AL potrzebuje dostępu do Siri, aby umożliwić sterowanie głosowe aplikacją.</string>
+	
+	<!-- Apple Sign In -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>al</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>al</string>
+			</array>
+		</dict>
+	</array>
+	
+	<!-- Universal Links -->
+	<key>CFBundleDocumentTypes</key>
+	<array/>
+	
+	<!-- Minimum OS Version -->
+	<key>MinimumOSVersion</key>
+	<string>15.0</string>
+	
+	<!-- Required for Capacitor -->
+	<key>CAPACITOR_APP_ID</key>
+	<string>com.axel.al</string>
+	<key>CAPACITOR_APP_NAME</key>
+	<string>AL</string>
+	<key>CAPACITOR_WEB_DIR</key>
+	<string>../../web/dist</string>
+</dict>
+</plist>

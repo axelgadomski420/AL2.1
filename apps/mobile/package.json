@@ -1,0 +1,39 @@
+{
+  "name": "al-mobile",
+  "version": "1.0.0",
+  "description": "AL - Mobile App (iOS and Android)",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx cap run ios",
+    "start:android": "npx cap run android",
+    "sync": "npx cap sync",
+    "sync:ios": "npx cap sync ios",
+    "sync:android": "npx cap sync android",
+    "open:ios": "npx cap open ios",
+    "open:android": "npx cap open android",
+    "add:ios": "npx cap add ios",
+    "add:android": "npx cap add android",
+    "copy": "npx cap copy",
+    "copy:ios": "npx cap copy ios",
+    "copy:android": "npx cap copy android",
+    "update": "npx cap update",
+    "update:ios": "npx cap update ios",
+    "update:android": "npx cap update android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/cli": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "capacitor",
+    "ios",
+    "android",
+    "mobile",
+    "al"
+  ],
+  "author": "Axel",
+  "license": "MIT"
+}

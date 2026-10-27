@@ -1,0 +1,28 @@
+{
+  "name": "@al/voice",
+  "version": "1.0.0",
+  "description": "Voice functionality package for AL - recording, STT, TTS, playback adapters",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "voice",
+    "stt",
+    "tts",
+    "recording",
+    "audio",
+    "speech"
+  ],
+  "author": "Axel",
+  "license": "MIT",
+  "dependencies": {
+    "@al/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>documentType</key>
+	<string>com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB</string>
+	<key>systemVersion</key>
+	<string>17C54</string>
+	<key>targetRuntime</key>
+	<string>iOS.CocoaTouch</string>
+	<key>type</key>
+	<string>UIKit</string>
+	<key>useAutolayout</key>
+	<true/>
+	<key>useTraitCollections</key>
+	<true/>
+	<key>useSafeAreas</key>
+	<true/>
+	<key>colorMatched</key>
+	<true/>
+	<key>initialViewController</key>
+	<string>038-NN-q5S</string>
+	<key>defaultPosition</key>
+	<string>fullScreen</string>
+	<key>moduleName</key>
+	<string>App</string>
+	<key>minimumDeployments</key>
+	<dict>
+		<key>iOS</key>
+		<string>150</string>
+	</dict>
+	<key>scenes</key>
+	<array>
+		<dict>
+			<key>sceneID</key>
+			<string>038-NN-q5S</string>
+			<key>identifier</key>
+			<string>Scene</string>
+			<key>class</key>
+			<string>UIWindowScene</string>
+			<key>storyboardIdentifier</key>
+			<string>Default Configuration</string>
+			<key>useStoryboardIdentifierAsRestorationIdentifier</key>
+			<false/>
+			<key>objects</key>
+			<array>
+				<dict>
+					<key>class</key>
+					<string>UIViewController</string>
+					<key>restorationIdentifier</key>
+					<string>ViewController</string>
+					<key>storyboardIdentifier</key>
+					<string>ViewController</string>
+					<key>useStoryboardIdentifierAsRestorationIdentifier</key>
+					<false/>
+					<key>view</key>
+					<dict>
+						<key>class</key>
+						<string>UIView</string>
+						<key>contentMode</key>
+						<string>scaleToFill</string>
+						<key>translatesAutoresizingMaskIntoConstraints</key>
+						<false/>
+						<key>color</key>
+						<string>systemBackgroundColor</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>UILayoutGuide</string>
+					<key>identifier</key>
+					<string>viewLayoutGuide</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>UILayoutGuide</string>
+					<key>identifier</key>
+					<string>safeArea</string>
+				</dict>
+			</array>
+			<key>point</key>
+			<string>{0, 0}</string>
+			<key>size</key>
+			<string>{414, 896}</string>
+		</dict>
+	</array>
+	<key>designTimeObjects</key>
+	<dict/>
+	<key>dependencies</key>
+	<dict/>
+	<key>sourceVersion</key>
+	<string>509</string>
+	<key>version</key>
+	<integer>1</integer>
+</dict>
+</plist>

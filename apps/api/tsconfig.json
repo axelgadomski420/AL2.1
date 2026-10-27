@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@al/shared": ["../../packages/shared/src/index.ts"],
+      "@al/db": ["../../packages/db/src/index.ts"],
+      "@al/tools": ["../../packages/tools/src/index.ts"]
+    },
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "jsx": "preserve"
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

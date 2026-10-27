@@ -1,0 +1,57 @@
+{
+  "appId": "com.axel.al",
+  "appName": "AL",
+  "webDir": "../../web/dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https",
+    "host": "localhost",
+    "port": 5173,
+    "cleartext": true
+  },
+  "ios": {
+    "scheme": "al",
+    "bundleId": "com.axel.al",
+    "minVersion": "15.0",
+    "supportsPortrait": true,
+    "supportsLandscape": true,
+    "statusBarStyle": "dark",
+    "launchScreenOrientation": "portrait"
+  },
+  "android": {
+    "package": "com.axel.al",
+    "minVersion": "24",
+    "supportsPortrait": true,
+    "supportsLandscape": true,
+    "statusBarStyle": "dark",
+    "launchScreenOrientation": "portrait"
+  },
+  "plugins": {
+    "Microphone": {
+      "enabled": true
+    },
+    "SpeechRecognition": {
+      "enabled": true
+    },
+    "TextToSpeech": {
+      "enabled": true
+    },
+    "Camera": {
+      "enabled": true
+    },
+    "Notifications": {
+      "enabled": true,
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "Share": {
+      "enabled": true
+    },
+    "Haptics": {
+      "enabled": true
+    },
+    "BiometricAuth": {
+      "enabled": true
+    }
+  },
+  "cordova": {}
+}

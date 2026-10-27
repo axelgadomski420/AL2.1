@@ -1,0 +1,148 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      turbo:
+        version: 2.11.10
+    devDependencies:
+      typescript:
+        version: 5.9.3
+
+  apps/api:
+    dependencies:
+      '@al/db':
+        version: workspace:*
+      '@al/shared':
+        version: workspace:*
+      '@al/tools':
+        version: workspace:*
+      '@libsql/client':
+        version: 0.5.0
+      axios:
+        version: 1.6.2
+      bcryptjs:
+        version: 2.4.3
+      drizzle-orm:
+        version: 0.30.8
+      hono:
+        version: 4.4.0
+      jose:
+        version: 5.2.2
+      uuid:
+        version: 9.0.1
+      zod:
+        version: 3.22.4
+    devDependencies:
+      '@types/bcryptjs':
+        version: 2.4.6
+      '@types/node':
+        version: 20.10.6
+      '@types/uuid':
+        version: 9.0.7
+      tsx:
+        version: 4.7.0
+      typescript:
+        version: 5.9.3
+
+  apps/mobile:
+    dependencies:
+      '@capacitor/cli':
+        version: 6.0.0
+      '@capacitor/core':
+        version: 6.0.0
+
+  apps/web:
+    dependencies:
+      '@al/shared':
+        version: workspace:*
+      '@al/ui':
+        version: workspace:*
+      '@al/voice':
+        version: workspace:*
+      dompurify:
+        version: 3.0.6
+      marked:
+        version: 11.1.1
+      react:
+        version: 18.2.0
+      react-dom:
+        version: 18.2.0
+      react-router-dom:
+        version: 6.21.3
+      uuid:
+        version: 9.0.1
+      zustand:
+        version: 4.5.1
+    devDependencies:
+      '@types/dompurify':
+        version: 3.0.5
+      '@types/marked':
+        version: 5.0.2
+      '@types/react':
+        version: 18.2.48
+      '@types/react-dom':
+        version: 18.2.18
+      '@types/uuid':
+        version: 9.0.7
+      '@vitejs/plugin-react':
+        version: 4.2.1
+      autoprefixer:
+        version: 10.4.17
+      postcss:
+        version: 8.4.35
+      tailwindcss:
+        version: 3.4.1
+      typescript:
+        version: 5.9.3
+      vite:
+        version: 5.1.0
+      vite-plugin-pwa:
+        version: 0.17.0
+
+  packages/db:
+    dependencies:
+      drizzle-orm:
+        version: 0.30.8
+    devDependencies:
+      typescript:
+        version: 5.9.3
+
+  packages/shared:
+    dependencies:
+      uuid:
+        version: 9.0.1
+      zod:
+        version: 3.22.4
+    devDependencies:
+      typescript:
+        version: 5.9.3
+
+  packages/tools:
+    devDependencies:
+      typescript:
+        version: 5.9.3
+
+  packages/ui:
+    dependencies:
+      react:
+        version: 18.2.0
+      react-dom:
+        version: 18.2.0
+    devDependencies:
+      '@types/react':
+        version: 18.2.48
+      '@types/react-dom':
+        version: 18.2.18
+      typescript:
+        version: 5.9.3
+
+  packages/voice:
+    devDependencies:
+      typescript:
+        version: 5.9.3
