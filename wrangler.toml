@@ -1,4 +1,4 @@
-name = "al-api"
+name = "al2-1"
 main = "apps/api/src/index.ts"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
@@ -7,12 +7,7 @@ compatibility_flags = ["nodejs_compat"]
 NODE_ENV = "production"
 AI_DEFAULT_PROVIDER = "mistral"
 
-[[d1_databases]]
-binding = "DB"
-database_name = "al-db"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
-migrations_dir = "packages/db/migrations"
-
 [assets]
 directory = "apps/web/dist"
 binding = "ASSETS"
+not_found_handling = "single-page-application"
