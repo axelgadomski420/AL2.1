@@ -1,6 +1,5 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
-import { useState, useEffect } from 'react';
 import { generateInitials } from '@al/shared';
 
 interface SidebarProps {
@@ -8,189 +7,117 @@ interface SidebarProps {
   isMobile?: boolean;
 }
 
+const navItems = [
+  { to: '/chat', icon: '💬', label: 'Czat' },
+  { to: '/projects', icon: '📁', label: 'Projekty' },
+  { to: '/memory', icon: '🧠', label: 'Pamięć' },
+  { to: '/files', icon: '📄', label: 'Pliki' },
+  { to: '/tasks', icon: '✅', label: 'Zadania' },
+  { to: '/integrations', icon: '🔗', label: 'Integracje' },
+  { to: '/settings', icon: '⚙️', label: 'Ustawienia' },
+];
+
 const Sidebar = ({ onClose, isMobile = false }: SidebarProps) => {
   const { user, logout } = useAuthStore();
-  const location = useLocation();
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  // Close sidebar on mobile when route changes
-  useEffect(() => {
-    if (isMobile && onClose) {
-      onClose();
-    }
-  }, [location, isMobile, onClose]);
-
-  const navItems = [
-    { to: '/chat', icon: '💬', label: 'Czat', exact: true },
-    { to: '/projects', icon: '📁', label: 'Projekty' },
-    { to: '/memory', icon: '🧠', label: 'Pamięć' },
-    { to: '/files', icon: '📄', label: 'Pliki' },
-    { to: '/tasks', icon: '✅', label: 'Zadania' },
-    { to: '/integrations', icon: '🔗', label: 'Integracje' },
-    { to: '/settings', icon: '⚙️', label: 'Ustawienia' },
-  ];
 
   const handleLogout = async () => {
     await logout();
-    if (isMobile && onClose) {
-      onClose();
-    }
+    onClose?.();
   };
 
-  if (isMobile) {
-    return (
-      <div className="fixed inset-0 bg-primary-900/95 backdrop-blur-sm z-50 flex flex-col md:hidden">
-        <div className="flex items-center justify-between p-4 border-b border-primary-800">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center font-bold text-white">
-              {user ? generateInitials(user.name || user.email) : 'AL'}
-            </div>
-            <div>
-              <div className="font-semibold text-primary-50">{user?.name || user?.email}</div>
-              <div className="text-sm text-primary-400">AL Assistant</div>
-            </div>
-          </div>
-          <button
-            onClick={onClose}
-            className="text-primary-300 hover:text-primary-50 text-2xl"
-            aria-label="Zamknij menu"
-          >
-            ×
-          </button>
-        </div>
-        
-        <nav className="flex-1 p-4">
-          <ul className="space-y-2">
-            {navItems.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  exact={item.exact}
-                  className={({ isActive }) =>
-                    `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                      isActive
-                        ? 'bg-accent-600/20 text-accent-500'
-                        : 'text-primary-300 hover:bg-primary-800 hover:text-primary-50'
-                    }`
-                  }
-                  onClick={onClose}
-                >
-                  <span className="text-xl">{item.icon}</span>
-                  <span className="font-medium">{item.label}</span>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="p-4 border-t border-primary-800">
-          <button
-            onClick={handleLogout}
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-primary-300 hover:bg-primary-800 hover:text-primary-50 transition-colors"
-          >
-            <span className="text-xl">🔒</span>
-            <span className="font-medium">Wyloguj się</span>
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
-    <aside className={`fixed left-0 top-0 bottom-0 w-64 bg-primary-900 border-r border-primary-800 flex flex-col z-50 transition-all duration-300 ${isCollapsed ? 'w-20' : ''}`}>
-      {/* Logo */}
-      <div className="p-4 border-b border-primary-800">
-        {!isCollapsed ? (
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center font-bold text-white text-xl">
-              AL
+    <aside
+      className={`
+        h-full flex flex-col
+        bg-primary-950 border-r border-primary-800/40
+        ${isMobile ? 'w-full' : 'w-64'}
+      `}
+    >
+      {/* === Główne menu – avatar AL === */}
+      <div className="relative px-4 pt-5 pb-4 border-b border-primary-800/40">
+        <div className="flex flex-col items-center text-center">
+          {/* Avatar */}
+          <div className="relative mb-3">
+            <div className="w-20 h-20 rounded-2xl overflow-hidden ring-2 ring-accent-500/40 shadow-glow">
+              <img
+                src="/al-avatar.png"
+                alt="AL"
+                className="w-full h-full object-cover object-top"
+                onError={(e) => {
+                  // fallback gdy plik jeszcze nie leży lokalnie
+                  (e.target as HTMLImageElement).src =
+                    'https://i.ibb.co/N6jNxrdj/IMG-4438.png';
+                }}
+              />
             </div>
-            <div>
-              <div className="font-bold text-primary-50">AL</div>
-              <div className="text-xs text-primary-400">Asystent AI</div>
-            </div>
+            {/* mała zielona kropka statusu */}
+            <span className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-success-500 rounded-full border-2 border-primary-950" />
           </div>
-        ) : (
-          <div className="w-10 h-10 bg-accent-600 rounded-lg flex items-center justify-center font-bold text-white text-xl mx-auto">
+
+          <div className="font-semibold text-primary-50 tracking-tight text-lg">
             AL
           </div>
+          <div className="text-xs text-primary-400 mt-0.5">
+            Asystent · Axel
+          </div>
+        </div>
+
+        {isMobile && (
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-3 btn-icon text-primary-400 hover:text-primary-50"
+            aria-label="Zamknij"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          </button>
         )}
       </div>
 
-      {/* User Profile */}
-      <div className="p-4 border-b border-primary-800 hidden md:block">
-        {!isCollapsed ? (
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center font-bold text-white text-sm">
-              {user ? generateInitials(user.name || user.email) : '?'}
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="font-semibold text-primary-50 truncate">{user?.name || user?.email}</div>
-              <div className="text-xs text-primary-400">Online</div>
-            </div>
-          </div>
-        ) : (
-          <div className="w-10 h-10 bg-accent-600 rounded-full flex items-center justify-center font-bold text-white text-sm mx-auto">
-            {user ? generateInitials(user.name || user.email).charAt(0) : '?'}
-          </div>
-        )}
-      </div>
-
-      {/* Navigation */}
-      <nav className="flex-1 p-4 overflow-y-auto">
-        <ul className="space-y-2">
+      {/* Nawigacja */}
+      <nav className="flex-1 overflow-y-auto py-4 px-3">
+        <ul className="space-y-1">
           {navItems.map((item) => (
             <li key={item.to}>
               <NavLink
                 to={item.to}
-                exact={item.exact}
+                end={item.to === '/chat'}
+                onClick={onClose}
                 className={({ isActive }) =>
-                  `flex items-center gap-3 px-4 py-3 rounded-lg transition-colors ${
-                    isActive
-                      ? 'bg-accent-600/20 text-accent-500'
-                      : 'text-primary-300 hover:bg-primary-800 hover:text-primary-50'
-                  }`
+                  `nav-item ${isActive ? 'nav-item-active' : ''}`
                 }
               >
-                <span className="text-xl">{item.icon}</span>
-                {!isCollapsed && <span className="font-medium">{item.label}</span>}
+                <span className="text-lg leading-none w-6 text-center">{item.icon}</span>
+                <span className="text-sm">{item.label}</span>
               </NavLink>
             </li>
           ))}
         </ul>
       </nav>
 
-      {/* Bottom Section */}
-      <div className="p-4 border-t border-primary-800">
-        {!isCollapsed ? (
-          <>
-            <button
-              onClick={handleLogout}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-primary-300 hover:bg-primary-800 hover:text-primary-50 transition-colors"
-            >
-              <span className="text-xl">🔒</span>
-              <span className="font-medium">Wyloguj się</span>
-            </button>
-            <div className="mt-4 text-xs text-primary-500 text-center">
-              v{import.meta.env.VITE_APP_VERSION || '1.0.0'}
+      {/* Stopka użytkownika */}
+      <div className="p-3 border-t border-primary-800/40 shrink-0">
+        <div className="flex items-center gap-3 px-2 py-2 rounded-xl">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-accent-500 to-accent-700 flex items-center justify-center text-white text-sm font-semibold shrink-0">
+            {user ? generateInitials(user.name || user.email) : '?'}
+          </div>
+          <div className="min-w-0 flex-1">
+            <div className="text-sm font-medium text-primary-50 truncate">
+              {user?.name || user?.email || 'Użytkownik'}
             </div>
-          </>
-        ) : (
-          <button
-            onClick={handleLogout}
-            className="w-10 h-10 bg-primary-800 rounded-lg flex items-center justify-center text-primary-300 hover:bg-primary-700 hover:text-primary-50 transition-colors mx-auto"
-            aria-label="Wyloguj się"
-          >
-            <span className="text-lg">🔒</span>
-          </button>
-        )}
-      </div>
-
-      {/* Collapse Toggle */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 bg-primary-800 p-2 rounded-r-lg cursor-pointer hover:bg-primary-700 transition-colors" onClick={() => setIsCollapsed(!isCollapsed)}>
-        <span className={`transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`}>
-          {isCollapsed ? '›' : '‹'}
-        </span>
+            <div className="text-2xs text-primary-400 truncate">
+              {user?.email}
+            </div>
+          </div>
+        </div>
+        <button
+          onClick={handleLogout}
+          className="mt-1 w-full nav-item text-red-400/90 hover:text-red-400 hover:bg-red-500/10"
+        >
+          <span className="text-base w-6 text-center">↪</span>
+          <span className="text-sm">Wyloguj</span>
+        </button>
       </div>
     </aside>
   );
